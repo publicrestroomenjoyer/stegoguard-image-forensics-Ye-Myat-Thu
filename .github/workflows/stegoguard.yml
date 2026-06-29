@@ -11,13 +11,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Show lab mode
-        run: cat lab_mode.txt
+        uses: actions/checkout@v5
 
       - name: Create demo image
         run: python make_demo_image.py
 
+      - name: Check images folder
+        run: ls -la images
+
       - name: Run StegoGuard scanner
         run: python scanner.py
+
+
